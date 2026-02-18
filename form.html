@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form</title>
+         <link rel="stylesheet" href="style.css">
+         <script src="a.js"></script>
+    </head>
+         
+    <body>
+        
+       
+       
+       
+        <form class="form" action="form1.html" method="get">
+             <h1>Employee Registration</h1>
+            <br>
+            <label for="name">Name : </label> 
+            <input type="text" id="name" required>
+            <br><br>
+            <lable >Email : </lable>
+            <input type="email" id="email" required>
+            <br><br>
+            <label for="number">Phone Number : </label>
+            <input type="tel" pattern="[0-9]{10}" id="number"required>
+            <br><br>
+            Gender : <input type="radio" value="gender">Male
+            <input type="radio" value="gender">Female
+            <br><br>
+            Date of Birth : <input type="date" placeholder="date">
+            <br><br>
+            Course Choosen :
+            <select>
+                <option value="html">HTML</option>
+                <option value="java">JAVA</option>
+                <option value="python">Python</option>
+            </select>
+            <br><br>
+            <button id="click">
+                  <input type="submit" id="submit" placeholder="SUBMIT">
+            </button>
+          
+            <label id="message1"></label>
+
+        </form>
+       
+    
+    </body>
+</html>
