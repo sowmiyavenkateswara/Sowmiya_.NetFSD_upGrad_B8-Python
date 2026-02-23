@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+</head>
+<style>
+    body{
+       
+        font-size:large;
+        text-align: center;
+        margin-top:200px;
+        margin-bottom:200px ;
+        margin-left:300px ;
+        margin-right:300px ;
+        padding: 20px;
+        background-color: purple;
+      
+    }
+    #f1{
+        background-color: pink;
+padding: 20px;
+display: block;
+
+border-radius: 20px;
+    }
+    #name,#email,#age{
+          padding: 2px;
+    }
+    #nameMsg,#message{
+        color: white;
+        font-size: large;
+        font-style: italic;
+    }
+</style>
+<body>
+
+  <form id="f1">
+    <h1>Form Validation</h1>
+    <label for="name">Name : </label>
+    <input type="text" onchange="validateName()" id="name" placeholder="Enter the Name" required>
+    <p id="nameMsg"></p>
+    <br><br>
+
+    <label for="email">Email : </label>
+    <input type="email" onchange="validateEmail()" id="email" placeholder="Enter Email" required>
+    <p id="emailMsg"></p>
+    <br><br>
+
+    <label for="age">Age : </label>
+    <input type="number" onchange="validateAge()" id="age" min="18" required>
+    <p id="ageMsg"></p>
+    <br><br>
+
+    <button type="submit" onclick="Submit()">Submit</button>
+ 
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    function validateName(){
+      let fname = document.getElementById("name").value;
+      if(fname === ""){
+        document.getElementById("nameMsg").innerHTML ="Please Enter the Name";
+        return false;
+      } else {
+        document.getElementById("nameMsg").innerHTML="Valid Name";
+        return true;
+      }
+    }
+
+    function validateEmail(){
+      let mail = document.getElementById("email").value;
+      if(mail.includes("@")){
+        document.getElementById("emailMsg").innerHTML="Valid Email";
+        return true;
+      } else {
+        document.getElementById("emailMsg").innerHTML="Invalid Email";
+        return false;
+      }
+    }
+
+    function validateAge(){
+      let ag = document.getElementById("age").value;
+      if(ag <=18){
+        document.getElementById("ageMsg").innerHTML ="Valid Age";
+        return true;
+      } else {
+        document.getElementById("ageMsg").innerHTML ="Invalid Age";
+        return false;
+      }
+    }
+
+    function Submit(){
+    
+      if (validateName() && validateEmail() && validateAge()) {
+        let fname = document.getElementById("name").value;
+        let mail = document.getElementById("email").value;
+        let ag = document.getElementById("age").value;
+
+        sessionStorage.setItem("fname", fname);
+        sessionStorage.setItem("mail", mail);
+        sessionStorage.setItem("ag", ag);
+
+        document.getElementById("message").innerHTML =
+          "Registration successful!.";
+      } else {
+        document.getElementById("message").innerHTML =
+          "Please fix errors before submitting.";
+      }
+    }
+  </script>
+</body>
+</html>
